@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="main">
+            <div class="left">
+                <p>Hamburgers: <br /><span class="burger-cost pink-text">0</span></p>
+                <div class="burger-img-container">
+                    <img src="./assets/hamburger.png" class="hamburger-img" onclick="incrementBurgers(event)" draggable="false">
+                </div>
+            </div>
+
+            <script id="upgrade-template" type="text/template">
+                <div class="upgrade type-{{type}}" onclick="buyUpgrade('{{name}}')" id="{{name}}-upgrade">
+                    <div class="left-section">
+                        <img src="{{image}}" class="upgrade-img">
+                    </div>
+                    <div class="mid-section">
+                        <h4>{{name}}</h4>
+                        <div class="cost-info">
+                            <p class="cost-text"><span class="{{name}}-cost">{{cost}}</span></p>
+                            <img src="./assets/hamburger.png" class="hamburger-image">
+                        </div>
+                    </div>
+                    <div class="right-section">Level <span class="{{name}}-level">0</span></div>
+                    <div class="next-level-info" id="{{name}}-next-level">
+                        <p id="{{name}}-next-p">
+                            +<span class="{{name}}-increase">{{increase}}</span> burgers <br /> per click
+                        </p>
+                    </div>
+                </div>
+            </script>
+
+            <div class="right">
+                <div class="right-navbar">
+                    <div id="upgrades-nav-button">Upgrade</div>
+                </div>
+
+                <div id="upgrades-container"></div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="texts">
+                <p>BPC: <span id="bpc-text" class="pink-text">1</span></p>
+                <p>BPS: <span id="bps-text" class="pink-text">0</span></p>
+            </div>
+        </div>
+
+        <div class="util-buttons">
+            <button class="util-button prestige-button" onclick="prestige()">Prestige</button>
+            <button class="util-button" onclick="save()">Save</button>
+            <button class="util-button" onclick="load()">Load</button>
+        </div>
+
+        <div class="relic">
+            Relic: <span id="relic">0</span>
+        </div>
+    </section>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
